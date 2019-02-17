@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block head_extra %}
+<link href="/static/css/index.css" rel="stylesheet" type="text/css"/>
+<!-- Auteur du CSS (dipsonible sur CodePen) https://codepen.io/jimmycow/ https://codepen.io/jimmycow/pen/LmjVaz -->
+
+{% endblock %}
+
+{% block content %}
+  <h1 style="text-align: center">Accueil</h1>
+<h3 style="text-align: center">Bienvenue au Coop Bécik!</h3>
+
+	<div style="padding-top:10px">
+	  {{message|safe}}
+	</div>
+
+{% endblock %}

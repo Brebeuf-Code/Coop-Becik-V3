@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- lib css -->
+    <link href="/static/lib/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <link href="/static/lib/css/jquery.dataTables_themeroller.css" rel="stylesheet" type="text/css" />
+    <link href="/static/lib/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/lib/css/datepicker3.css" rel="stylesheet">
+    <link href="/static/lib/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/lib/css/jquery.pnotify.default.css" rel="stylesheet" type="text/css" />
+
+    <!-- our css -->
+    <link href="/static/css/master.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/w3.css" rel="stylesheet" type="text/css"/>
+
+    <!-- lib js -->
+    <script src="/static/lib/js/jquery.min.js"></script>
+    <script src="/static/lib/js/jquery.dataTables.min.js"></script>
+    <script src="/static/lib/js/bootstrap.js"></script>
+    <script src="/static/lib/js/bootstrap-datepicker.js"></script>
+    <script src="/static/lib/js/bootstrap-datepicker.fr.js"></script>
+    <script src="/static/lib/js/jquery.pnotify.min.js"></script>
+    <script src="/static/lib/js/jquery.dataTables.columnFilter.js"></script>
+    <script src="/static/lib/js/mustache.js"></script>
+    <script src="/static/lib/js-bootstrap-v4.00/bootstrap.js"></script>
+
+    <!-- our js -->
+    <script src="/static/js/commun.js"></script>
+    <script src="/static/js/messages.js"></script>
+
+<!--     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+    <link rel="icon" type="image/png" href="/static/img/icon.png" />
+
+    <title>{% block title %}Inventaire Biciklo{% endblock %}</title>
+    {% block head_extra %}
+    {% endblock %}
+  </head>
+
+
+  <body>
+
+<!--     <nav class="navbar navbar-fixed-top navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+
+
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-expand-lg navbar-dark bg-dark" style="background-color: #000000">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+        <a href="/">
+        <img id="logo" src="/static/img/logo.png" style="float: left;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="#navbarNavDropdown">
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/membres" style="color:white">Membres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pieces" style="color:white">Pièces</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/factures" style="color:white">Factures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/formulaire" style="color:white">Formulaire</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  style="color:white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+                <b class="caret"></b>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="color:white">
+                <a class="dropdown-item" href="/heuresbenevoles">Heures bénévoles</a>
+                <a class="dropdown-item" href="/admin/rapport">Rapports mensuels</a>
+                <a class="dropdown-item" href="/admin/ventes">Ventes</a>
+                <a class="dropdown-item" href="/admin/listediffusion">Liste de diffusion</a>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+
+
+    <div id="container">
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

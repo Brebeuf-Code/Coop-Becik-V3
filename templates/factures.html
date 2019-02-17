@@ -1,0 +1,88 @@
+
+{% extends "layout.html" %}
+{% block head_extra %}
+<script src="/static/js/factures.js"></script>
+{% endblock %}
+
+{% block content %}
+  <h1>Factures ouvertes</h1>
+
+ 
+  <div><a href="/factures-fermees" id="btn-factures-fermees">Voir factures fermées &raquo;</a></div>
+  <br>
+
+  <h4>1. Nom du membre</h4>
+  <div>
+    <form class="form-inline" id="form-nouvelle-facture">
+    Nouvelle facture:
+    <div class="input-append">
+      <input type="text" class="input-mini" placeholder="membre" id="input-nouvelle-facture">
+      <button class="btn">Go</button>
+    </div>
+    </form>
+  </div>
+
+  <a id="text_a_afficher_transaction" href="#" onclick="montrer_et_cacher_details_de_la_transaction()">Afficher la transaction</a>
+  <div id="details_de_la_transaction" style="display: none">
+   <h4>2. Mode de transaction</h4>
+  Rabais: <b>{{rabais}}</b>
+   <br>Taxes:  <b>{{taxe}}</b>
+   <br>
+   <a href="#" onclick="montrer_et_cacher_modifier_prix()">Modifier mode de transaction</a>
+   <div id="modifier_prix" style="display: none;">
+      <form action="handle_data" method="POST">
+        <div id="modifier_prix_checkbox" style="padding-top: 20px; padding-bottom: 20px;">
+          <input type="checkbox" name="rabais" value="on">Rabais (-15.0%)</input><br>
+          <input type="checkbox" name="taxe" value="on">Taxe (+15.0%)</input><br>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Modifier ces paramètres">
+      </form>
+    </div>
+
+    <h4>3. Pièces en question</h4>
+    <div id="loading" style="text-align: center">
+      <img src="/static/loading.gif" />
+    </div>
+
+    <div id="factures-container">
+      <div class="facture-container" id="facture-template">
+        <span class="titre"></span>
+        <span class="boutons">
+          <i class="icon icon-folder-close close"></i>&nbsp;&nbsp;<i class="icon icon-trash remove"></i>
+        </span>
+
+
+        <div class="contenu">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Catégorie</th>
+                <th>Pièce</th>
+                <th>Référence</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>Prix total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="100">
+                  <form class="form-ajout-piece-facture">
+                  <input class="input-mini input-numero-piece" type="text" placeholder="#">
+                  <input class="input-mini input-quantite-piece" type="text" placeholder="quantité">
+                  <input type="submit" class="btn" value="Ajouter">
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="text-align: right;" class="total"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
